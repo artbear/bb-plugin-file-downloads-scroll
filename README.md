@@ -2,6 +2,10 @@
 
 Плагин добавляет кнопки **«Скачать файл»** и **«Скачать ZIP»** над встроенным предпросмотром Markdown.
 
+Эта версия продолжает [исходный плагин](https://github.com/artbear/bb-plugin-file-downloads)
+и исправляет прокрутку длинных документов. [История изменений](CHANGELOG.md) ·
+[Причина ошибки и проверка прокрутки](docs/scrolling.md).
+
 ![Панель скачивания Markdown](docs/screenshot.png)
 Имя исходного файла и его содержимое сохраняются. ZIP содержит один файл с исходным именем.
 
@@ -10,8 +14,12 @@
 Требуется BB 0.46.1 или новее с Plugin SDK 0.6.49 или новее.
 
 ```sh
-bb plugin install https://github.com/artbear/bb-plugin-file-downloads
+bb plugin install git:https://github.com/artbear/bb-plugin-file-downloads-scroll.git@^0.1.1
 ```
+
+Если File Downloads уже установлен из исходного репозитория, сначала удалите его
+установку командой `bb plugin remove file-downloads`, затем выполните команду выше.
+Идентификатор плагина сохранён: `file-downloads`.
 
 Откройте Markdown-файл в правой панели BB. Если уже выбран другой просмотрщик, установите
 **Markdown со скачиванием** в **Settings → File openers** для нужного расширения либо выберите
@@ -24,6 +32,8 @@ bb plugin install https://github.com/artbear/bb-plugin-file-downloads
 
 - **Скачать файл** сохраняет Markdown с исходным именем.
 - **Скачать ZIP** сохраняет архив; внутри находится исходный Markdown.
+
+Длинный документ прокручивается внутри панели; кнопки скачивания остаются видимыми над ним.
 
 Используется штатное сохранение BB: загрузка в браузере и BB Desktop, системное меню
 сохранения/отправки в приложении BB на iOS. Диалог, папка и окончательное имя при конфликте
@@ -52,6 +62,8 @@ npm test
 bb plugin build .
 bb plugin install . --yes
 ```
+
+Проверка прокрутки в работающем BB описана в [docs/scrolling.md](docs/scrolling.md).
 
 Для работы с текущей версией API:
 

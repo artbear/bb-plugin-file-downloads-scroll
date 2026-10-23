@@ -81,7 +81,7 @@ function MarkdownDownloads({ path, source, Original }: PluginFileOpenerProps) {
   return (
     <div className="flex h-full min-h-0 flex-col">
       <DownloadActions key={fileKey} path={path} source={source} />
-      <div className="min-h-0 flex-1"><Original /></div>
+      <div className="min-h-0 flex-1 overflow-y-auto"><Original /></div>
     </div>
   );
 }
